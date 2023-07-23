@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Router from './src/navigation/ExploreNavigator';
 
 
 
@@ -35,12 +36,8 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View>
-        <Text>
-          hello
-        </Text>
-      </View>
+    <SafeAreaView >
+      <Router/>
     </SafeAreaView>
   );
 }
