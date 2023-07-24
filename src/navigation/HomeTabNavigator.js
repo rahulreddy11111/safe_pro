@@ -23,9 +23,25 @@ const Tab = createBottomTabNavigator();
 const HomeTabNavigator = (props) => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: '#f15454',
-      }}>
+    screenOptions={({ route }) => ({
+      tabBarActiveTintColor: '#f15454',
+      tabBarIcon: ({ color }) => {
+        let iconName;
+        if (route.name === 'Explore') {
+          return <Fontisto name="search" size={25} color={color} />;
+        } else if (route.name === 'Store') {
+          return <MaterialIcons name="storefront" size={30} color={color} />;
+        } else if (route.name === 'Account') {
+          return <EvilIcons name="user" size={40} color={color} />;
+        } else if (route.name === 'Wishlist') {
+          return <Feather name="heart" size={25} color={color} />;
+        } else if (route.name === 'Cart') {
+          return <Feather name="shopping-cart" size={25} color={color} />;
+        }
+      },
+    })}
+  >
+   
       <Tab.Screen
         name={'Explore'}
         component={ExploreNavigator}

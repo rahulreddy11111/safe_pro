@@ -12,13 +12,14 @@ const HomeScreen = (props) => {
   //const navigation = useNavigation();
 
   return (
-  
+    <SafeAreaView style={{ flex: 1 }}>
     <ScrollView>
     <View style = {{justifyContent : 'center' ,  height : '100%' , width : '100%' ,backgroundColor : 'white'}}>
       <View style = {{ padding : 1, flex : 1 , top : '4%' , height : '10%' }}>
       <Pressable
         style={styles.searchButton}
-        onPress={() => navigation.navigate('Destination Search')}>
+        //onPress={() => navigation.navigate('Destination Search')}
+        >
         <Fontisto name="search" size={25} color={'#e88079'} margin = {10} />
         <Text style={styles.searchButtonText}>Search by product,brand & more...</Text>
       </Pressable>
@@ -44,6 +45,7 @@ const HomeScreen = (props) => {
 
     </View>
    </ScrollView>
+   </SafeAreaView>
   
    
     

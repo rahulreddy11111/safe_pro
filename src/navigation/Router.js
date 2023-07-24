@@ -28,13 +28,13 @@ const Router = (props) => {
             headerShown: false,
           }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name={"Destination Search"}
           component={HomeScreen}
           options={{
             title: "Search the best"
           }}
-        />
+        /> */}
 
          {/* <Stack.Screen
           name={"customer care"}
@@ -57,13 +57,13 @@ const Router = (props) => {
             headerShown: false,
           }}
         /> */}
-       <Stack.Screen
+       {/* <Stack.Screen
        name = "screen_address"
        component = {Customer_care}
        options = {{
         title : "Address screen"
        }}
-       />
+       /> */}
 
 
       </Stack.Navigator>

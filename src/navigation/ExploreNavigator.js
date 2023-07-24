@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screens/Home';
 //import SearcResultsScreen from '../screens/SearchResults';
 //import SearchResultsTabNavigator from "./SearchResultsTabNavigator";
+import Customer_care from '../components/Account_detailed/Customer_care';
 
 const Stack = createStackNavigator();
 

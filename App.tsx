@@ -25,6 +25,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Router from './src/navigation/Router';
+import HomeScreen from './src/screens/Home';
+
+import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 
@@ -36,9 +40,12 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView >
+    
       <Router/>
-    </SafeAreaView>
+      
+      
+     
+      
   );
 }
 
