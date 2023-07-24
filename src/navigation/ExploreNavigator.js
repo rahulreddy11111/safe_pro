@@ -18,7 +18,6 @@ const Router = (props) => {
           headerShown: false,
         }}
       />
-
       <Stack.Screen
         name={'SearchResults'}
         component={HomeScreen}
