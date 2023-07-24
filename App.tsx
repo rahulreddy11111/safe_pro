@@ -24,7 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Router from './src/navigation/ExploreNavigator';
+import Router from './src/navigation/Router';
 
 
 

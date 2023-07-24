@@ -24,7 +24,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   const handleImagePress = (index: number) => {
     navigation.navigate('Detailed_product', { index });
   };
-
+  
   return (
     <View style={styles.root}>
       <FlatList
