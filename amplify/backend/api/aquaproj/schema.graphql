@@ -1,0 +1,27 @@
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  avgRating: Float
+  ratings: Int
+  price: Float
+  oldPrice: Float
+  description: String
+  images: [String!]!
+  options: [String!]
+  image: String!
+}
+
+type CartProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  quantity: Int!
+  option: String
+  productID: ID!
+  wishlist: Boolean
+  product: Product @hasOne
+}
+
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  content: String!
+} 

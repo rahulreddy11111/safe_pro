@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aquaproj-dev-215054-authRole",
+      "UnauthRoleArn": "arn:aws:iam::703360724954:role/amplify-aquaproj-dev-215054-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::703360724954:role/amplify-aquaproj-dev-215054-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-aquaproj-dev-215054-deployment",
+      "UnauthRoleName": "amplify-aquaproj-dev-215054-unauthRole",
+      "StackName": "amplify-aquaproj-dev-215054",
+      "StackId": "arn:aws:cloudformation:us-east-1:703360724954:stack/amplify-aquaproj-dev-215054/14c50820-2a3e-11ee-afa0-12f7df97d1c1",
+      "AmplifyAppId": "d1tyid3ssy5w0o"
+    }
+  },
+  "aquaproje": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aquaproj-aquaproje-92655-authRole",
+      "UnauthRoleArn": "arn:aws:iam::703360724954:role/amplify-aquaproj-aquaproje-92655-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::703360724954:role/amplify-aquaproj-aquaproje-92655-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-aquaproj-aquaproje-92655-deployment",
+      "UnauthRoleName": "amplify-aquaproj-aquaproje-92655-unauthRole",
+      "StackName": "amplify-aquaproj-aquaproje-92655",
+      "StackId": "arn:aws:cloudformation:ap-south-1:703360724954:stack/amplify-aquaproj-aquaproje-92655/4cdca7c0-2a9f-11ee-a683-06b504eeac98",
+      "AmplifyAppId": "d214avbd34h941"
+    },
+    "categories": {
+      "api": {
+        "aquaproj": {}
+      }
+    }
+  }
+}

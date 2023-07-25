@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "aquaproj",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-07-25T05:23:27.163Z"
+}

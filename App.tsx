@@ -30,6 +30,10 @@ import HomeScreen from './src/screens/Home';
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
+import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import awsExports from './src/aws-exports';
+Amplify.configure(awsExports);
+
 
 
 function App(): JSX.Element {
