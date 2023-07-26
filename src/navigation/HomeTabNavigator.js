@@ -13,7 +13,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 //import PostScreen from "../screens/PostScreen";
 //import Account_profile from "../screens/Account_profile";
-//import ShoopingCartScreen from "../screens/ShoopingCartScreen";
+import ShoopingCartScreen from "../screens/ShoopingCartScreen";
 import ProductDisplayScreen from '../screens/ProductDisplayScreen';
 //import Login_screen from '../screens/Login_screen';
 import Customer_care from '../components/Account_detailed/Customer_care';
@@ -80,7 +80,7 @@ const HomeTabNavigator = (props) => {
       />
       <Tab.Screen
         name={'Cart'}
-        component={Customer_care}
+        component={ShoopingCartScreen}
         options={{
           tabBarIcon: ({color}) => (
             <Feather name="shopping-cart" size={25} color={color} />

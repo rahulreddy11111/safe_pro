@@ -34,6 +34,9 @@ import { Amplify, API, graphqlOperation } from 'aws-amplify';
 import awsExports from './src/aws-exports';
 Amplify.configure(awsExports);
 
+import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
+
+
 
 
 function App(): JSX.Element {
@@ -55,4 +58,4 @@ function App(): JSX.Element {
 
 
 
-export default App;
+export default withAuthenticator(App);

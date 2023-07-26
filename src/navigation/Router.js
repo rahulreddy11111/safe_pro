@@ -9,7 +9,7 @@ import HomeTabNavigator from "./HomeTabNavigator";
 //import QuantitySelector from "../components/QuantitySelector";
 //import Account_profile from "../screens/Account_profile";
 import Customer_care from "../components/Account_detailed/Customer_care";
-//import Detailed_product from "../screens/Detailed_product";
+import Detailed_product from "../screens/Detailed_product";
 //import Login_screen from "../screens/Login_screen";
 //import AddressScreen from "../screens/AddressScreen";
 
@@ -28,6 +28,13 @@ const Router = (props) => {
             headerShown: false,
           }}
         />
+         <Stack.Screen
+          name={"DetailedProduct"}
+          component={Detailed_product}
+          options={{
+            title: "Prduct Details"
+          }}
+        /> 
         {/* <Stack.Screen
           name={"Destination Search"}
           component={HomeScreen}
@@ -45,7 +52,7 @@ const Router = (props) => {
         />  
         <Stack.Screen
           name={"DetailedProduct"}
-          component={Customer_care}
+          component={Detailed_product}
           options={{
             title: "Prduct Details"
           }}
@@ -64,6 +71,7 @@ const Router = (props) => {
         title : "Address screen"
        }}
        /> */}
+       
 
 
       </Stack.Navigator>

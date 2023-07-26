@@ -28,7 +28,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
   const onPress = () => {
     navigation.navigate('DetailedProduct', { item, isLiked: likedItems[item.id] || false });
   };
-
+  
   const onPressHeart = () => {
     setLikedItems((prevLikedItems) => ({
       ...prevLikedItems,
