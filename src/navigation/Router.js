@@ -10,8 +10,9 @@ import HomeTabNavigator from "./HomeTabNavigator";
 //import Account_profile from "../screens/Account_profile";
 import Customer_care from "../components/Account_detailed/Customer_care";
 import Detailed_product from "../screens/Detailed_product";
-//import Login_screen from "../screens/Login_screen";
+import Login_screen from "../screens/Login_screen";
 //import AddressScreen from "../screens/AddressScreen";
+import Detailed_W_product from "../screens/Detailed_wishlist_product";
 
 
 
@@ -35,6 +36,27 @@ const Router = (props) => {
             title: "Prduct Details"
           }}
         /> 
+        <Stack.Screen
+          name={"DetailedwishlistProduct"}
+          component={Detailed_W_product}
+          options={{
+            title: "Prduct Details"
+          }}
+        /> 
+         <Stack.Screen
+          name="logout_item"
+          component={Login_screen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={"customer care"}
+          component={Customer_care}
+          options={{
+            title: "Customer care"
+          }}
+        />  
         {/* <Stack.Screen
           name={"Destination Search"}
           component={HomeScreen}

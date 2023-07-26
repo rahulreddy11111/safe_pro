@@ -12,12 +12,12 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 //import Router from './ExploreNavigator';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 //import PostScreen from "../screens/PostScreen";
-//import Account_profile from "../screens/Account_profile";
+import Account_profile from "../screens/Account_profile";
 import ShoopingCartScreen from "../screens/ShoopingCartScreen";
 import ProductDisplayScreen from '../screens/ProductDisplayScreen';
 //import Login_screen from '../screens/Login_screen';
 import Customer_care from '../components/Account_detailed/Customer_care';
-
+import ProductWishlistScreen from '../screens/ProductWishlistScreen';
 const Tab = createBottomTabNavigator();
 
 const HomeTabNavigator = (props) => {
@@ -62,7 +62,7 @@ const HomeTabNavigator = (props) => {
       />
        <Tab.Screen
         name={'Account'}
-        component={Customer_care}
+        component={Account_profile}
         options={{
           tabBarIcon: ({color}) => (
             <EvilIcons name="user" size={40} color={color} />
@@ -71,7 +71,7 @@ const HomeTabNavigator = (props) => {
       />
       <Tab.Screen
         name={'Wishlist'}
-        component={Customer_care}
+        component={ProductWishlistScreen}
         options={{
           tabBarIcon: ({color}) => (
             <Feather name="heart" size={25} color={color} />
