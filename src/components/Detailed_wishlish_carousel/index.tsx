@@ -10,6 +10,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { DataStore, Auth } from 'aws-amplify';
 import { Product, CartProduct } from '../../models';
 import { useRoute } from '@react-navigation/native';
+import Feather from 'react-native-vector-icons/Feather';
 
 interface ProductItemProps {
   item: {
@@ -31,7 +32,7 @@ const Detailed_Wishlish_carousel = ({ item, isLiked }: { item: ProductItemProps[
 
   const [activeIndex, setActiveIndex] = useState(0);
   const windowWidth = useWindowDimensions().width;
-  const [indicate, setIndicate] = useState('True');
+  const [indicate, setIndicate] = useState(true);
   const [product, setProduct] = useState(undefined);
   const [selectedOption, setSelectedOption] = useState<String | null>(null);
   const [quantity, setQuantity] = useState(1);
@@ -75,6 +76,8 @@ const Detailed_Wishlish_carousel = ({ item, isLiked }: { item: ProductItemProps[
         return;
       }
       console.warn('cart item');
+      
+
       const newCartProduct = new CartProduct({
         userSub: userData.attributes.sub,
         quantity : indicate ? quantity : 1,
@@ -296,10 +299,11 @@ const Detailed_Wishlish_carousel = ({ item, isLiked }: { item: ProductItemProps[
 
     
     <Pressable onPress={onAddToCart}>
-    <View style={{ height: 50, width: 150, backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}>
-  
-    <Text style={{ fontSize: 15, fontWeight: '600' }}>
-      Add to bag
+    
+    <View style={{ height: 50, width: 150, backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row'}}>
+    <Feather name = "shopping-bag" size = {18}/>
+    <Text style={{ fontSize: 15, fontWeight: '600' , marginHorizontal : '2%' }}>
+      Add of bag
     </Text>
   
 </View>

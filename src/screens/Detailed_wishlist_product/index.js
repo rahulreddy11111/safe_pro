@@ -11,7 +11,7 @@ import { useRoute } from '@react-navigation/native';
 
   return (
     <SafeAreaView>
-    <View >
+    <View>
             <Detailed_carousel item = {item} isLiked = {isLiked}/>
     </View>
     </SafeAreaView>
@@ -19,7 +19,7 @@ import { useRoute } from '@react-navigation/native';
 };
 
 const styles = StyleSheet.create({
- 
+
 });
 
 export default Detailed_W_product;

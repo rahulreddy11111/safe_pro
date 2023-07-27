@@ -1,22 +1,25 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  root: {
-    flexDirection: 'column',
+  main:{
+    
     borderWidth: 1,
     borderColor: '#edede8',
     borderRadius: 10,
     backgroundColor: '#fff',
     width : '50%',
     marginVertical : '1%',
-    padding : 10,
-    resizeMode : 'cover',
+    padding : 4,
+    resizeMode : 'contain',
     justifyContent : 'center',
-    
+
+  },
+  root: {
+    flexDirection: 'column',
   },
   image: {
     flex: 2,
-    height: 160,
+    height: 150,
     resizeMode: 'contain',
   },
   rightContainer: {

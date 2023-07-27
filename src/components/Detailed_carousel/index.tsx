@@ -10,6 +10,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { DataStore, Auth } from 'aws-amplify';
 import { Product, CartProduct } from '../../models';
 import { useRoute } from '@react-navigation/native';
+import Feather from 'react-native-vector-icons/Feather';
 
 interface ProductItemProps {
   item: {
@@ -35,7 +36,7 @@ const Detailed_carousel = ({ item, isLiked }: { item: ProductItemProps['item'], 
   const [product, setProduct] = useState(undefined);
   const [selectedOption, setSelectedOption] = useState<String | null>(null);
   const [quantity, setQuantity] = useState(1);
- 
+  
 
   const route = useRoute();
 
@@ -296,11 +297,13 @@ const Detailed_carousel = ({ item, isLiked }: { item: ProductItemProps['item'], 
 
     
     <Pressable onPress={onAddToCart}>
-    <View style={{ height: 50, width: 150, backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 }}>
-  
-    <Text style={{ fontSize: 15, fontWeight: '600' }}>
+    <View style={{ height: 50, width: 150, backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row' }}>
+    
+    <Feather name = "shopping-bag" size = {18}/>
+    <Text style={{ fontSize: 15, fontWeight: '600' , margin : '2%' }}>
       Add to bag
     </Text>
+     
   
 </View>
 </Pressable>

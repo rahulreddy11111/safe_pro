@@ -5,6 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+
+
 
 interface ProductItemProps {
   item: {
@@ -39,6 +42,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
   const isLiked = likedItems[item.id] || false;
 
   return (
+    <View style = {styles.main}>
     <Pressable onPress={onPress} style={styles.root}>
       <Image style={styles.image} source={{ uri: item.image }} />
       {/* <View
@@ -64,7 +68,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
         </TouchableOpacity>
       </View> */}
       <View style={styles.rightContainer}>
-        <Text style={styles.title} numberOfLines={3}>
+        <Text style={styles.title} numberOfLines={2}>
           {item.title}
         </Text>
         {/* Ratings */}
@@ -86,8 +90,45 @@ const ProductItem = ({ item }: ProductItemProps) => {
             <Text style={styles.oldPrice}> ${item.oldPrice.toFixed(2)}</Text>
           )}
         </Text>
+        
       </View>
     </Pressable>
+   
+
+
+   <View style = {{ flexDirection : 'row' }}>
+
+    <View style = {{height : 50 , width : '25%' , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 , marginHorizontal : '5%' }}>
+      <TouchableOpacity 
+      //onPress = {onPressWishlist}
+      >
+        <View style = {{height : 50 , width : 40 , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 }}>
+  <AntDesign name = "delete" size = {20} color = {'#000'} />
+        </View>
+      </TouchableOpacity>
+    </View>
+
+    
+    <Pressable 
+    //onPress={onAddToCart}
+    >
+    <View style={{ height: 50, width: '90%', backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row' , marginHorizontal : '1%' }}>
+      
+    <Feather name = "shopping-bag" size = {14}/>
+
+    <Text style={{ fontSize: 15, fontWeight: '600' , margin : '1%' }}>
+      Add to bag
+    </Text>
+
+    
+  
+    </View>
+</Pressable>
+
+</View>
+   
+  
+    </View>
   );
 };
 
