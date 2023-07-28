@@ -38,7 +38,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
       [item.id]: !prevLikedItems[item.id],
     }));
   };
-
+  
   const isLiked = likedItems[item.id] || false;
 
   return (
@@ -98,7 +98,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
 
    <View style = {{ flexDirection : 'row' }}>
 
-    <View style = {{height : 50 , width : '25%' , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 , marginHorizontal : '5%' }}>
+    <View style = {{height : 50 , width : '25%' , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 , marginHorizontal : '3%' }}>
       <TouchableOpacity 
       //onPress = {onPressWishlist}
       >
@@ -112,7 +112,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
     <Pressable 
     //onPress={onAddToCart}
     >
-    <View style={{ height: 50, width: '90%', backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row' , marginHorizontal : '1%' }}>
+    <View style={{ height: 50, width: '90%', backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row' , marginHorizontal : '0.5%' }}>
       
     <Feather name = "shopping-bag" size = {14}/>
 
