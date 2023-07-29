@@ -23,7 +23,7 @@ interface ProductItemProps {
     oldPrice: number;
     images : string;
     description : string;
-    options : string;
+    options : string ;
   };
   isliked : boolean;
 }
@@ -80,7 +80,7 @@ const Detailed_Wishlish_carousel = ({ item, isLiked }: { item: ProductItemProps[
 
       const newCartProduct = new CartProduct({
         userSub: userData.attributes.sub,
-        quantity : indicate ? quantity : 1,
+        quantity : 1,
         option: selectedOption,
         productID: item.id,
         wishlist : indicate,

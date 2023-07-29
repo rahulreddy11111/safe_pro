@@ -4,7 +4,7 @@ import { View, StyleSheet, FlatList, SafeAreaView, Dimensions, ActivityIndicator
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { DataStore, Auth } from 'aws-amplify';
 import ProductItem from '../../components/ProductWishlistItem';
-import { Product, CartProduct } from '../../../src/models';
+import { Product, CartProduct } from '../../models';
 //import product from '../../data/product';
 
 const ProductWishlistScreen = ({ searchValue }: { searchValue: string }) => {
@@ -16,16 +16,29 @@ const ProductWishlistScreen = ({ searchValue }: { searchValue: string }) => {
   const route = useRoute();
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchWishlistProducts = async () => {
       try {
-        const products = await DataStore.query(Product);
-        setProducts(products);
+        // Fetch CartProduct data where wishlist is true
+        const cartProducts = await DataStore.query(CartProduct);
+        const wishlistCartProducts = cartProducts.filter((cp) => cp.wishlist === true);
+
+        // Extract the productIDs from the filtered CartProduct data
+        const productIds = wishlistCartProducts.map((cp) => cp.productID);
+
+        // Fetch the corresponding Product data using the productIDs
+        const wishlistProducts = await Promise.all(
+          productIds.map((productId) => DataStore.query(Product, productId))
+        );
+
+        setProducts(wishlistProducts);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('Error fetching wishlist products:', error);
       }
     };
+    
+    
 
-    fetchProducts();
+    fetchWishlistProducts();
   }, []);
 
  

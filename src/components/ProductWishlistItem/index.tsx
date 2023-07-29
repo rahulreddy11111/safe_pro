@@ -6,7 +6,9 @@ import styles from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
-
+import { DataStore, Auth } from 'aws-amplify';
+import { Product, CartProduct } from '../../models';
+import { useRoute } from '@react-navigation/native';
 
 
 interface ProductItemProps {
@@ -16,7 +18,7 @@ interface ProductItemProps {
     image?: string;
     avgRating: number;
     ratings: number;
-    price: number;
+    price?: number;
     oldPrice?: number;
     images? : string;
     description : string;
@@ -40,6 +42,67 @@ const ProductItem = ({ item }: ProductItemProps) => {
   };
   
   const isLiked = likedItems[item.id] || false;
+
+  const onPressWishlist = () =>{
+    return;
+  }
+
+  const onAddToCart = async  () => {
+  try{
+    const userData = await Auth.currentAuthenticatedUser();
+    
+
+    if (!userData) {
+
+      return;
+    }
+    console.warn('cart item');
+    
+
+    const newCartProduct = new CartProduct({
+      userSub: userData.attributes.sub,
+      quantity : 1,
+      //option: selectedOption,
+      productID: item.id,
+      //wishlist : indicate,
+    });
+    await DataStore.save(newCartProduct);
+    console.warn('Product added to cart');
+}   catch (error) {
+    console.log('Error adding product to cart:', error);
+  // Handle the error or show an error message to the user
+}
+};
+
+const onPressDelete = async (productId: string) => {
+  try {
+    // Get the current authenticated user
+    const userData = await Auth.currentAuthenticatedUser();
+    if (!userData) {
+      return;
+    }
+
+    // Fetch all CartProduct entries for the current user and with the same productID
+    const cartProducts = await DataStore.query(CartProduct, (cp) =>
+      cp.productID('eq', productId).userSub('eq', userData.attributes.sub)
+    );
+
+    // Delete all the matching CartProduct entries
+    await Promise.all(cartProducts.map((cp) => DataStore.delete(cp)));
+
+    // Update the products state to remove the deleted product from the UI
+    setProducts((prevProducts) => prevProducts.filter((p) => p.id !== productId));
+
+    console.warn('All products with the same productID deleted from cart');
+  } catch (error) {
+    console.log('Error deleting products from cart:', error);
+    // Handle the error or show an error message to the user
+  }
+};
+
+
+
+ 
 
   return (
     <View style = {styles.main}>
@@ -100,7 +163,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
 
     <View style = {{height : 50 , width : '25%' , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 , marginHorizontal : '3%' }}>
       <TouchableOpacity 
-      //onPress = {onPressWishlist}
+      onPress = {onPressDelete}
       >
         <View style = {{height : 50 , width : 40 , backgroundColor : '#dee0df' , alignItems : 'center' , justifyContent : 'center', borderRadius : 10 }}>
   <AntDesign name = "delete" size = {20} color = {'#000'} />
@@ -110,7 +173,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
 
     
     <Pressable 
-    //onPress={onAddToCart}
+    onPress={onAddToCart}
     >
     <View style={{ height: 50, width: '90%', backgroundColor: '#dee0df',  alignItems: 'center', justifyContent: 'center', borderRadius: 10 , flexDirection : 'row' , marginHorizontal : '0.5%' }}>
       
