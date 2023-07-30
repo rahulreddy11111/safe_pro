@@ -74,31 +74,33 @@ const ProductItem = ({ item }: ProductItemProps) => {
 }
 };
 
-const onPressDelete = async (productId: string) => {
+
+const onPressDelete = async () => {
   try {
-    // Get the current authenticated user
     const userData = await Auth.currentAuthenticatedUser();
     if (!userData) {
       return;
     }
 
-    // Fetch all CartProduct entries for the current user and with the same productID
-    const cartProducts = await DataStore.query(CartProduct, (cp) =>
-      cp.productID('eq', productId).userSub('eq', userData.attributes.sub)
+    const userSub: string = userData.attributes.sub;
+
+    const cartProducts = await DataStore.query<CartProduct>((cp) =>
+      cp.productID('eq', item.id).userSub('eq', userSub)
     );
 
-    // Delete all the matching CartProduct entries
-    await Promise.all(cartProducts.map((cp) => DataStore.delete(cp)));
-
-    // Update the products state to remove the deleted product from the UI
-    setProducts((prevProducts) => prevProducts.filter((p) => p.id !== productId));
-
-    console.warn('All products with the same productID deleted from cart');
+    if (cartProducts.length > 0) {
+      await Promise.all(cartProducts.map((cp) => DataStore.delete(cp)));
+      console.warn('All products with the same productID deleted from cart');
+    } else {
+      console.warn('No products found in the cart with the same productID');
+    }
   } catch (error) {
     console.log('Error deleting products from cart:', error);
     // Handle the error or show an error message to the user
   }
 };
+
+
 
 
 

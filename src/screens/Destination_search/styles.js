@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
   },
 
   searchButton: {
-    backgroundColor: '#ebf2ed',
+    backgroundColor: '#fff',
     width: Dimensions.get('screen').width - 20,
-    borderRadius: 30,
-   marginHorizontal: 10,
+    borderRadius: 10,
+    marginHorizontal: 10,
     height : 50,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     //top: 50,
     zIndex: 100,
-    marginVertical : '6%'
+    marginVertical : '5%'
     
 
   },
@@ -49,6 +49,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color : '#606962'
+  },
+  productPlaceholder: {
+    backgroundColor: '#f2f2f2',
+    padding: 15,
+    marginBottom: 1,
+    borderRadius: 1,
+    //borderWidth: 0.2,
+    
+    justifyContent : 'center',
+  },
+  productTitle: {
+    height:30,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  searchContainer : {
+    height : '20%',
+    justifyContent : 'center',
+    marginHorizontal : '5%',
+    width : '100%'
+    
+  },
+  searchInput : {
+    fontSize : 18,
+    
   },
 });
 

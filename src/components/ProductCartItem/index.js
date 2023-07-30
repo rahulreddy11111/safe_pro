@@ -20,7 +20,7 @@ interface CartProductItemProps{
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('ProductDetails', {id: product.id});
+    navigation.navigate('Detailed_Product', {item: product, isLiked: cartProduct.wishlist });
   };
 
   const updateQuantity = async (newQuantity) => {
