@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 15,
     fontWeight: 'bold',
+    flexDirection : 'row',
   },
   oldPrice: {
     fontSize: 12,

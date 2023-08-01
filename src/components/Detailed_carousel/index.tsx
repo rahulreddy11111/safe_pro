@@ -132,11 +132,11 @@ const Detailed_carousel = ({ item, isLiked }: { item: ProductItemProps['item'], 
         
         <View style = {{flexDirection : 'row' ,top : '1%' , alignItems:'center'  }}>
         <Text style = {{margin : '2%' , fontSize : 15 , fontWeight : '600'}}>
-          ₹{item.price.toFixed(2)} MRP
+          ₹{item.price?.toFixed(2)} MRP
 
         </Text>
         <Text style = {{textDecorationLine : 'line-through' , color : 'grey'}}>
-          ₹{item.oldPrice.toFixed(2)}
+          ₹{item.oldPrice?.toFixed(2) }
         </Text>
         </View>
     </View>

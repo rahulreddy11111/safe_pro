@@ -14,6 +14,7 @@ import Login_screen from "../screens/Login_screen";
 //import AddressScreen from "../screens/AddressScreen";
 import Detailed_W_product from "../screens/Detailed_wishlist_product";
 import Destination_Search from "../screens/Destination_search";
+import AddressScreen from "../screens/AddressScreen";
 
 
 const Stack = createStackNavigator();
@@ -64,6 +65,13 @@ const Router = (props) => {
             title: "Search the best"
           }}
         /> 
+        <Stack.Screen
+          name={"screen_address"}
+          component={AddressScreen}
+          options={{
+            title: "Address"
+          }}
+        />
 
          {/* <Stack.Screen
           name={"customer care"}

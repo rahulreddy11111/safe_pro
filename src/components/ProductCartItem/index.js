@@ -20,7 +20,7 @@ interface CartProductItemProps{
   const navigation = useNavigation();
 
   const onPress = () => {
-    navigation.navigate('Detailed_Product', {item: product, isLiked: cartProduct.wishlist });
+    navigation.navigate('DetailedProduct', {item: product, isLiked: cartProduct.wishlist });
   };
 
   const updateQuantity = async (newQuantity) => {
@@ -56,13 +56,24 @@ interface CartProductItemProps{
           ))}
           <Text>{product.ratings}</Text>
         </View>
+
+        <View style = {{flexDirection : 'row'}}>
+          <Text style={styles.price}>
+          {product.price && (
+            <Text style={styles.price}> ${product.oldPrice.toFixed(2)}</Text>
+          )}
+        </Text>
+           
         <Text style={styles.price}>
-          
           {product.oldPrice && (
             <Text style={styles.oldPrice}> ${product.oldPrice.toFixed(2)}</Text>
           )}
         </Text>
+
+        </View>
+
         <View>
+
           <QuantitySelector quantity={cartProduct.quantity}
           setQuantity={updateQuantity}/>
         </View>
