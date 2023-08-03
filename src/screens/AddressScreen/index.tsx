@@ -30,7 +30,7 @@ const AddressScreen = () => {
   const [city, setCity] = useState('');
 
   const navigation = useNavigation();
-
+  
 //   const saveOrder = async () => {
 //     // get user details
 //     const userData = await Auth.currentAuthenticatedUser();
