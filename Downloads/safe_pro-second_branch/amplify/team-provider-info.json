@@ -1,0 +1,30 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-safeprosecondbranch-dev-182401-authRole",
+      "UnauthRoleArn": "arn:aws:iam::703360724954:role/amplify-safeprosecondbranch-dev-182401-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::703360724954:role/amplify-safeprosecondbranch-dev-182401-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-safeprosecondbranch-dev-182401-deployment",
+      "UnauthRoleName": "amplify-safeprosecondbranch-dev-182401-unauthRole",
+      "StackName": "amplify-safeprosecondbranch-dev-182401",
+      "StackId": "arn:aws:cloudformation:ap-south-1:703360724954:stack/amplify-safeprosecondbranch-dev-182401/7c202b60-3521-11ee-8592-06897b4c7710",
+      "AmplifyAppId": "d2790twfw4gfbs"
+    },
+    "categories": {
+      "api": {
+        "safeprosecondbranch": {}
+      },
+      "auth": {
+        "safeprosecondbranch05be5173": {},
+        "safeprosecondbranche1a88646": {}
+      },
+      "function": {
+        "CreatePaymentIntent": {
+          "deploymentBucketName": "amplify-safeprosecondbranch-dev-182401-deployment",
+          "s3Key": "amplify-builds/CreatePaymentIntent-71764f304e5a70624343-build.zip"
+        }
+      }
+    }
+  }
+}

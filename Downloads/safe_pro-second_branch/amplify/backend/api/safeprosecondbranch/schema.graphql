@@ -1,0 +1,69 @@
+type Blog @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  posts: [Post] @hasMany
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  blog: Blog @belongsTo
+  comments: [Comment] @hasMany
+}
+
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  post: Post @belongsTo
+  content: String!
+}
+
+type Order @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  fullName: String!
+  phoneNumber: String
+  country: String
+  city: String
+  address: String
+}
+
+type OrderProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  quantity: Int!
+  option: String
+  productID: ID!
+  orderID: ID!
+  product: Product @hasOne
+  order: Order @hasOne
+}
+
+type Product @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  avgRating: Float
+  ratings: Int
+  price: Float
+  oldPrice: Float
+  description: String
+  images: [String!]!
+  options: [String!]
+  image: String!
+}
+
+type CartProduct @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSub: String!
+  quantity: Int!
+  option: String
+  productID: ID!
+  wishlist: Boolean
+  product: Product @hasOne
+}
+
+ type Mutation {
+  createPaymentIntent(amount: Int!): PaymentIntent! @function(name: "CreatePaymentIntent-${env}")
+}
+
+type PaymentIntent {
+  clientSecret: String!
+}
